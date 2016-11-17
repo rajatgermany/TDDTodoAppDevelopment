@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="vendor.min.js"></script>
+    <script src = 'main.js'></script>
+    <title>Title</title>
+</head>
+
+
+<body ng-app = 'TodoApp' ng-controller="TodoController">
+
+
+{{Incomplete()}}
+
+
+
+
+<div class = 'panel'>
+
+    <div>
+        <br>
+
+        <br>
+    </div>
+        <div class = 'col-xs-3'>
+
+            <div class = 'well'>
+                <input type = 'text' ng-model = 'New.Task' placeholder="Add Task">
+                <button type = 'button' ng-click = 'SaveTodo(New)'>Add</button>
+
+            </div>
+        </div>
+        <div class = 'col-xs-6'>
+            <h3 style="background-color: red">{{warning()}}</h3>
+            <table class = 'table'>
+                <tr>
+                    <th>Task</th>
+                    <th>Completed</th>
+                    <th>
+                    </th>
+                    <th>
+
+                    </th>
+                    <th>Action</th>
+
+                </tr>
+                <tr  ng-repeat = 'i in Todo'>
+                    <td ng-hide = 'i.edit'>{{i.Task}}</td>
+                    <td ng-hide = 'i.edit' ng-if = 'i.Completed'>Completed</td>
+                    <td ng-hide = 'i.edit' ng-if = '!i.Completed'>Pending</td>
+                    <td><input type = 'text' ng-model = 'i.Task' ng-if = 'i.edit'></td>
+                    <td><input type = 'checkbox' ng-model ='i.Completed' ng-if = 'i.edit'></td>
+                    <td><div class = 'btn-row'>
+                        <button class = 'btn btn-primary btn-sm' type = 'button' ng-click = 'editTodo(i, $index)'  ng-if = '!i.edit'>Edit</button>
+                        <button  class = 'btn btn-primary btn-sm' type = 'button' ng-click = 'updateTodo(i)'  ng-if = 'i.edit'>Update</button>
+                        <button  class = 'btn btn-danger btn-sm'type = 'button' ng-click = 'RemoveTodo(i._id)'>Remove</button>
+
+                    </div>
+                    </td>
+
+                </tr>
+
+            </table>
+
+        </div>
+
+        </div>
+
+
+
+
+
+
+
+</body>
+</html>

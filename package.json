@@ -1,0 +1,26 @@
+{
+  "name": "tddtodo",
+  "version": "1.0.0",
+  "description": "Test driven Todo App Development",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "chai": "^3.5.0",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.6.7",
+    "morgan": "^1.7.0",
+    "sinon": "^1.17.6"
+  }
+}
