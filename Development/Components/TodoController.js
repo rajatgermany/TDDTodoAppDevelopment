@@ -1,12 +1,7 @@
 
 angular.module('TodoApp')
     .controller('TodoController', function($scope, TodoFactory) {
-
-
-
         function GetAllTodo() {
-
-
             var AllTodoPromise = TodoFactory.getAllTodo()
             AllTodoPromise.then(function (resolve) {
                 $scope.Todo = resolve
@@ -14,14 +9,10 @@ angular.module('TodoApp')
             }, function (reject) {
                 $scope.err = reject
             })
-
-
         }
 
         GetAllTodo();
-
         $scope.SaveTodo = function(Todo){
-
             var SaveTodoPromise = TodoFactory.saveTodo(Todo)
             SaveTodoPromise.then(function(resolve){
                 if(resolve.message =='Post Action Failed'){
@@ -38,8 +29,6 @@ angular.module('TodoApp')
         }
 
 
-
-
         $scope.RemoveTodo = function(TodoID){
             var RemoveTodoPromise = TodoFactory.removeTodo(TodoID)
             RemoveTodoPromise.then(function(resolve){
@@ -53,16 +42,12 @@ angular.module('TodoApp')
                 $scope.err = reject
             })
 
-
-
-
         }
 
 
         $scope.editTodo = function(TodoItem, index){
             $scope.Todo[index].edit = true;
         }
-
 
 
         $scope.updateTodo = function(Todo){
@@ -79,17 +64,12 @@ angular.module('TodoApp')
                 $scope.err = reject
             })
 
-
-
-
         }
 
 
         $scope.Incomplete = function(){
-
             var count = 0;
             angular.forEach($scope.Todo, function(Task){
-
                 if(Task.Completed == false){
 
                     count = count +1;
@@ -101,9 +81,7 @@ angular.module('TodoApp')
 
 
         $scope.warning = function(){
-
             if($scope.Incomplete() > 4){
-
                 return 'Warning!!! No of incomplete Tasks are way more'
             }
 

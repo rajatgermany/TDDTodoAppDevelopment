@@ -2,21 +2,14 @@ angular.module('TodoApp')
     .factory('TodoFactory', function(resourceFactory , $q) {
 
         var TodoFactory = {};
-
-
         TodoFactory.getAllTodo = function () {
             var deferredObject = $q.defer();
             resourceFactory
                 .query()
                 .$promise
                 .then(function (result) {
-
-
                     deferredObject.resolve(result)
-
-
                 }, function (err) {
-
                     deferredObject.reject(err)
                 })
 
@@ -36,8 +29,6 @@ angular.module('TodoApp')
                 })
 
             return deferredObject.promise;
-
-
         }
 
 
@@ -47,11 +38,7 @@ angular.module('TodoApp')
             newTodo.TodoData = Todo;
             resourceFactory.save(newTodo, function (value, m) {
                 deferredObject.resolve(value);
-
-
             })
-
-
             return deferredObject.promise;
         }
 
@@ -61,7 +48,6 @@ angular.module('TodoApp')
             resourceFactory.delete({Todo_ID: TodoID}, function (value) {
                 deferredObject.resolve(value)
             })
-
             return deferredObject.promise;
         }
 
@@ -74,15 +60,7 @@ angular.module('TodoApp')
         })
 
         return deferredObject.promise;
-
-
     }
-
-
-
-
-
-
         return TodoFactory;
 
     })

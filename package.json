@@ -4,7 +4,8 @@
   "description": "Test driven Todo App Development",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
@@ -22,5 +23,16 @@
     "mongoose": "^4.6.7",
     "morgan": "^1.7.0",
     "sinon": "^1.17.6"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajatgermany/TDDTodoAppDevelopment.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rajatgermany/TDDTodoAppDevelopment/issues"
+  },
+  "homepage": "https://github.com/rajatgermany/TDDTodoAppDevelopment#readme"
 }

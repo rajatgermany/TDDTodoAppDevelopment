@@ -1,9 +1,5 @@
 angular.module('TodoApp')
     .factory('resourceFactory', ['$resource', function ($resource) {
-
-
-
-
         // Assemble actions with custom headers attached
         var actions = {
             'get'   : {method: 'GET'},
