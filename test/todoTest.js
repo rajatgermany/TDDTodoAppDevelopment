@@ -5,12 +5,10 @@ var chai = require('chai');
 var mocha = require('mocha');
 var  should = chai.should();
 describe('Get All Todo', function(){
-
-
+    
     var request = {}
     var responseSuccess= {
-
-        json: function(docs){
+    json: function(docs){
             docs.should.be.a('object');
             docs.should.have.property('message').eql('Action Successfull');
             docs.should.have.property('todo').eql([]);
@@ -20,13 +18,10 @@ describe('Get All Todo', function(){
 
 
     var responseError= {
-
-        json: function(docs){
+     json: function(docs){
             console.log(docs);
             docs.should.be.a('object');
-            docs.should.have.property('message').eql('Action Failed');
-
-
+            docs.should.have.property('message').eql('Action Failed')
         }
     }
 
@@ -36,7 +31,6 @@ describe('Get All Todo', function(){
         stub.withArgs({}).yields(null, expectedResult);
         TodoController.getAllTodo(request,responseSuccess);
         stub.restore();
-
         done();
     })
 
@@ -46,7 +40,7 @@ describe('Get All Todo', function(){
 
 describe('Post new Todo to the List', function(){
     it('Post Successfull ! Todo List Updated', function(done){
-
+    
         var expectedResult = {message: 'Action Successful'};
         var TodoMock = sinon.mock(new Todo({ todo: 'Save new todo from mock'}));
         var todo = TodoMock.object;
@@ -60,10 +54,7 @@ describe('Post new Todo to the List', function(){
         });
 
     })
-
-
-
-
+    
     it('Returns Error if Post Fails', function(done){
         var expectedResult = {message: 'Action Failed' , error : 'Something Went Wrong'};
         var mock = sinon.mock(new Todo ({ Task : 'Project Todo'}))
@@ -83,16 +74,8 @@ describe('Post new Todo to the List', function(){
 
 })
 
-
-
-
-
-
-
 describe('Delete Todo from the List', function(){
-
-
-    var request = {
+        var request = {
         params:{
             id: '1234'
         }
@@ -101,8 +84,6 @@ describe('Delete Todo from the List', function(){
         json: function(docs){
             docs.should.be.a('object');
             docs.should.have.property('message').eql('Todo Removed from the List');
-
-
         }
     }
 
@@ -111,8 +92,6 @@ describe('Delete Todo from the List', function(){
             docs.should.be.a('object');
             docs.should.have.property('message').eql('Action Failed');
             docs.should.have.property('error').eql('Some Error Occur')
-
-
         }
     }
 
@@ -125,9 +104,7 @@ describe('Delete Todo from the List', function(){
         stub.restore();
         done();
     })
-
     
-
     it('Returns errors if delete action is failed', function(done){
         var expectedResult = {status: 'Todo Not Deleted' , error : 'Something Went Wrong'};
         var stub = sinon.stub(Todo, 'remove');
